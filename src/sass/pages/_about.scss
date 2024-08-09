@@ -1,0 +1,11 @@
+.about {
+  margin: 1em auto;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  gap: 2em;
+
+  .heading-1 {
+    text-align: center;
+  }
+}

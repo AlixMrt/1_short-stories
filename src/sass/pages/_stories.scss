@@ -1,0 +1,27 @@
+.stories {
+  display: grid;
+  gap: 3em;
+  margin: 4em 0;
+  @media (min-width: 800px) {
+    margin: 8m 0;
+  }
+
+  .heading-1 {
+    margin: 0 auto;
+    text-align: center;
+  }
+
+  .filters {
+    button {
+      border-color: grey;
+      margin: 0 1em;
+      color: grey;
+      &:hover,
+      &:active &:focus,
+      &.active {
+        border-color: black;
+        color: black;
+      }
+    }
+  }
+}

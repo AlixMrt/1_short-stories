@@ -1,0 +1,48 @@
+@use "../general" as *;
+
+._single-story-page {
+  gap: 2em;
+
+  padding: 4em 1em;
+  position: relative;
+
+  border: 1px solid black;
+  display: grid;
+  background-color: white;
+  box-shadow: rgba(0, 0, 0, 0.2) 15px 28px 25px -18px;
+
+  border-bottom-left-radius: 10px 285px;
+  border-bottom-right-radius: 225px 10px;
+  border-top-left-radius: 255px 10px;
+  border-top-right-radius: 10px 285px;
+  transition: all 125ms ease-in-out;
+
+  @media (min-width: 800px) {
+    padding: 8em 4em;
+  }
+
+  .heading-1 {
+    text-align: center;
+    margin-top: 1.5em;
+  }
+
+  .heading-2 {
+    text-align: center;
+    font-weight: $fw-thin;
+  }
+  .button {
+    position: absolute;
+    padding: 0.5em;
+    left: 1em;
+    top: 1em;
+    @media (min-width: 800px) {
+      left: 2em;
+      top: 2em;
+    }
+  }
+
+  p {
+    text-align: justify;
+    line-height: 1.5;
+  }
+}

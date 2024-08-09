@@ -1,0 +1,33 @@
+.home {
+  display: grid;
+  gap: 8em;
+  @media (min-width: 800px) {
+    width: 40%;
+  }
+
+  dialog {
+    opacity: 1;
+  }
+  .hero {
+    .heading-1 {
+      margin-top: 2em;
+      @media (min-width: 800px) {
+        margin-top: 0;
+      }
+      text-align: center;
+      line-height: 1.25;
+    }
+  }
+
+  .buttons-container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 2em;
+
+    @media (min-width: 800px) {
+      flex-direction: row;
+      gap: 2em;
+    }
+  }
+}
