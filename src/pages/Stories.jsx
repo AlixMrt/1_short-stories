@@ -2,13 +2,13 @@ import { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import StoriesList from "../components/StoriesList";
 import {
-  selectAllPosts,
-  selectFavorite,
+  selectAllStories,
+  selectFavoriteStories,
 } from "../features/stories/storiesSlice";
 
 export default function Stories() {
-  const posts = useSelector(selectAllPosts);
-  const favoriteStories = useSelector(selectFavorite);
+  const posts = useSelector(selectAllStories);
+  const favoriteStories = useSelector(selectFavoriteStories);
 
   const [storiesToBeDisplayed, setStoriesToBeDisplayed] = useState(posts);
 

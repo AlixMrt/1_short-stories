@@ -156,12 +156,12 @@ const postsSlice = createSlice({
   },
 });
 
-export const selectAllPosts = (state) => state.posts;
+export const selectAllStories = (state) => state.posts;
 
-export const selectPostById = (state, postId) =>
+export const selectStoryById = (state, postId) =>
   state.posts.find((post) => post.id === postId);
 
-export const selectFavorite = (state, postId) =>
+export const selectFavoriteStories = (state, postId) =>
   state.posts.filter((post) => post.favorite === true);
 
 export const { postAdded } = postsSlice.actions;

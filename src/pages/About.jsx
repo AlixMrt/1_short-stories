@@ -7,7 +7,7 @@ export default function About() {
       <h1 className="heading-1">This website was made with those tools :</h1>
 
       <TechList />
-      <button className="button">My Portfolio</button>
+      {/* <button className="button">My Portfolio</button> */}
     </section>
   );
 }
