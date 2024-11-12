@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Redirecting...</title>
+    <script type="text/javascript">
+      // Capture the current path and redirect to index.html with the path as a hash
+      const currentPath = window.location.pathname;
+      const target = `${window.location.origin}/1_short-stories/index.html#${currentPath}`;
+      window.location.replace(target);
+    </script>
+  </head>
+  <body>
+    <p>Redirecting...</p>
+  </body>
+</html>
