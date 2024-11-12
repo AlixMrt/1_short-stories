@@ -11,11 +11,11 @@
   .hero {
     .heading-1 {
       margin-top: 2em;
+      text-align: center;
+      line-height: 1.25;
       @media (min-width: 800px) {
         margin-top: 0;
       }
-      text-align: center;
-      line-height: 1.25;
     }
   }
 
