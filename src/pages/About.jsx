@@ -1,5 +1,4 @@
 import React from "react";
-import TechList from "../components/TechList";
 import AuthorList from "../components/AuthorList";
 
 export default function About() {
