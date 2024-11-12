@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSelector, createSlice, nanoid } from "@reduxjs/toolkit";
 
 const initialState = [
   {
@@ -8,6 +8,7 @@ const initialState = [
     date: "1905",
     userName: "Edmund Philibert",
     favorite: false,
+    img: "baldwin.webp",
     content: `There was once a king of Scotland whose name was Robert Bruce. He had need to be both brave and wise, for the times in which he lived were wild and rude. The King of England was at war with him, and had led a great army into Scotland to drive him out of the land.
     Battle after battle had been fought. Six times had Bruce led his brave little army against his foes; and six times had his men been beaten, and driven into flight. At last his army was scattered, and he was forced to hide himself in the woods and in lonely places among the mountains.
     One rainy day, Bruce lay on the ground under a rude shed, listening to the patter of the drops on the roof above him. He was tired and sick at heart, and ready to give up all hope. It seemed to him that there was no use for him to try to do anything more.
@@ -25,6 +26,7 @@ const initialState = [
     date: "1894",
     userName: "Auguste Barbier",
     favorite: false,
+    img: "wilde.png",
     content: `When Narcissus died the pool of his pleasure changed from a cup of sweet waters into a cup of salt tears, and the Oreads came weeping through the woodland that they might sing to the pool and give it comfort.
     And when they saw that the pool had changed from a cup of sweet waters into a cup of salt tears, they loosened the green tresses of their hair and cried to the pool and said, "We do not wonder that you should mourn in this manner for Narcissus, so beautiful was he."
     "But was Narcissus beautiful?" said the pool.
@@ -38,6 +40,7 @@ const initialState = [
     date: "1921",
     favorite: true,
     userName: "Marcel Lescure",
+    img: "woolf.webp",
     content: `Whatever hour you woke there was a door shutting. From room to room they went, hand in hand, lifting
     here, opening there, making sure—a ghostly couple. “Here we left it,” she said. And he added, “Oh, but here too!”
     “It’s upstairs,” she murmured. “And in the garden,” he whispered.“Quietly,” they said, “or we shall wake them.”
@@ -75,6 +78,7 @@ const initialState = [
     date: "1891",
     userName: "Marcel Lescure",
     favorite: false,
+    img: "chopin.webp",
     content: `The quick report of a pistol rang through the quiet autumn night. It was no unusual sound in the unsavory quarter where Dr. Chevalier had his office. Screams commonly went with it. This time there had been none.
     Midnight had already rung in the old cathedral tower.
     The doctor closed the book over which he had lingered so late, and awaited the summons that was almost sure to come.
@@ -95,6 +99,7 @@ const initialState = [
     date: "1910",
     userName: "Sarah Johansson ",
     favorite: true,
+    img: "leacock.webp",
     content: `I see from the current columns of the daily press that "Professor Plumb, of the University of Chicago, has just invented a highly concentrated form of food. All the essential nutritive elements are put together in the form of pellets, each of which contains from one to two hundred times as much nourishment as an ounce of an ordinary article of diet. These pellets, diluted with water, will form all that is necessary to support life. The professor looks forward confidently to revolutionizing the present food system."
 Now this kind of thing may be all very well in its way, but it is going to have its drawbacks as well. In the bright future anticipated by Professor Plumb, we can easily imagine such incidents as the following:
 The smiling family were gathered round the hospitable board. The table was plenteously laid with a soup-plate in front of each beaming child, a bucket of hot water before the radiant mother, and at the head of the board the Christmas dinner of the happy home, warmly covered by a thimble and resting on a poker chip. The expectant whispers of the little ones were hushed as the father, rising from his chair, lifted the thimble and disclosed a small pill of concentrated nourishment on the chip before him. Christmas turkey, cranberry sauce, plum pudding, mince pie--it was all there, all jammed into that little pill and only waiting to expand. Then the father with deep reverence, and a devout eye alternating between the pill and heaven, lifted his voice in a benediction.
@@ -111,6 +116,7 @@ And when they gathered the little corpse together, the baby lips were parted in 
     date: "1908",
     userName: "Michel Baptista",
     favorite: true,
+    img: "henri.webp",
     content: `In the northern part of Austin there once dwelt an honest family by the name of Smothers. The family consisted of John Smothers, his wife, himself, their little daughter, five years of age, and her parents, making six people toward the population of the city when counted for a special write-up, but only three by actual count.
     One night after supper the little girl was seized with a severe colic, and John Smothers hurried down town to get some medicine.
     He never came back. 
@@ -139,7 +145,7 @@ const postsSlice = createSlice({
       reducer(state, action) {
         state.push(action.payload);
       },
-      prepare(title, userId, date, userName, favorite, content) {
+      prepare(title, userId, date, userName, favorite, content, image) {
         return {
           payload: {
             id: nanoid(),
@@ -149,6 +155,7 @@ const postsSlice = createSlice({
             favorite,
             userName,
             content,
+            image,
           },
         };
       },
@@ -161,8 +168,13 @@ export const selectAllStories = (state) => state.posts;
 export const selectStoryById = (state, postId) =>
   state.posts.find((post) => post.id === postId);
 
-export const selectFavoriteStories = (state, postId) =>
-  state.posts.filter((post) => post.favorite === true);
+// export const selectFavoriteStories = (state, postId) =>
+//   state.posts.filter((post) => post.favorite === true);
+
+export const selectFavoriteStories = createSelector(
+  [selectAllStories], // Input selector
+  (posts) => posts.filter((post) => post.favorite === true) // Output selector
+);
 
 export const { postAdded } = postsSlice.actions;
 

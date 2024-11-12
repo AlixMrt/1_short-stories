@@ -4,9 +4,7 @@ import { Link, useParams } from "react-router-dom";
 
 export default function SingleStoryPage() {
   const { postId } = useParams();
-  console.log(postId);
   const post = useSelector((state) => selectStoryById(state, postId));
-  console.log(postId);
   if (!post) {
     return (
       <section>

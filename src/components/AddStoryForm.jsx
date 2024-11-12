@@ -13,24 +13,36 @@ export default function AddStoryForm({ closeButton }) {
   const [userId, setUserId] = useState("");
   const [favorite, setFavorite] = useState(false);
   const [userName, setUserName] = useState("");
+  const [image, setImage] = useState(null); // State to hold the selected image file
 
   const onTitleChanged = (e) => setTitle(e.target.value);
   const onContentChanged = (e) => setContent(e.target.value);
   const onDateChange = (e) => setDate(e.target.value);
   const onAuthorChanged = (e) => setUserId(e.target.value);
-  const onFavoriteChanged = (e) => setFavorite(e.target.value);
+  const onFavoriteChanged = (e) => setFavorite(e.target.checked); // Make sure to use 'checked' for checkboxes
   const onUserNameChanged = (e) => setUserName(e.target.value);
+
+  const handleImageChange = (e) => {
+    const file = e.target.files[0];
+    setImage(file); // Store the selected file
+  };
 
   const navigate = useNavigate();
 
   const onSavePostClicked = () => {
     if (title && content) {
-      dispatch(postAdded(title, content, date, userId, favorite, userName));
+      // If there is an image, include it in the payload (as a base64 string, URL, or reference)
+      const imageUrl = image ? URL.createObjectURL(image) : null; // For demo purposes, use object URL
+
+      dispatch(
+        postAdded(title, content, date, userId, favorite, userName, imageUrl)
+      ); // Include imageUrl in payload
       setTitle("");
       setContent("");
       setUserId("");
       setFavorite(false);
       setUserName("");
+      setImage(null); // Reset image after post
 
       navigate("/stories");
     }
@@ -49,9 +61,6 @@ export default function AddStoryForm({ closeButton }) {
         New <br /> Short Story
       </h2>
       {closeButton}
-      {/* <Link to={"/"} className="button | back-button">
-        &larr;
-      </Link> */}
       <TextDivider />
       <form className="add-story__form">
         <div className="add-story__form--inner-container">
@@ -75,7 +84,7 @@ export default function AddStoryForm({ closeButton }) {
                 type="checkbox"
                 id="favorite"
                 name="favorite"
-                value={favorite}
+                checked={favorite}
                 onChange={onFavoriteChanged}
               />
             </div>
@@ -94,7 +103,6 @@ export default function AddStoryForm({ closeButton }) {
             </div>
             <div>
               <label htmlFor="postAuthor">Author:</label>
-
               <input
                 type="text"
                 id="postAuthor"
@@ -125,12 +133,27 @@ export default function AddStoryForm({ closeButton }) {
             onChange={onContentChanged}
           />
         </div>
+
+        {/* Image upload
+        <div>
+          <label htmlFor="image">Upload Image:</label>
+          <input
+            type="file"
+            id="image"
+            name="image"
+            accept="image/*"
+            onChange={handleImageChange}
+          />
+          {image && <p>Selected image: {image.name}</p>}
+        </div> */}
+
         {!canSave && (
           <p>
             Please make sure to provide your user name, the story title, author,
-            date and content !
+            date, content, and optionally an image!
           </p>
         )}
+
         <button
           type="button"
           onClick={onSavePostClicked}

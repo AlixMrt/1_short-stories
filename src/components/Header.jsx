@@ -18,9 +18,9 @@ export default function Header() {
         <NavLink to="/stories" className="heading-2">
           Stories
         </NavLink>
-        <Link to="/about" className="heading-2">
-          About
-        </Link>
+        <NavLink to="/about" className="heading-2">
+          Authors
+        </NavLink>
       </nav>
     </header>
   );

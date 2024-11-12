@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useMemo, useState } from "react";
 import { useSelector } from "react-redux";
 import StoriesList from "../components/StoriesList";
 import {
@@ -12,29 +12,40 @@ export default function Stories() {
 
   const [storiesToBeDisplayed, setStoriesToBeDisplayed] = useState(posts);
 
+  // Memoize posts and favorite stories to avoid unnecessary re-renders
+  const memoizedPosts = useMemo(() => posts, [posts]);
+  const memoizedFavoriteStories = useMemo(
+    () => favoriteStories,
+    [favoriteStories]
+  );
+
   function handleFilterClick(e) {
     if (e.target.value === "posts") {
-      setStoriesToBeDisplayed(posts);
+      setStoriesToBeDisplayed(memoizedPosts);
     } else if (e.target.value === "favoriteStories") {
-      setStoriesToBeDisplayed(favoriteStories);
+      setStoriesToBeDisplayed(memoizedFavoriteStories);
     }
   }
 
-  useEffect(() => {});
   return (
     <section className="stories">
-      {storiesToBeDisplayed === posts && (
-        <h1 className="heading-1"> All our {posts.length} Short Stories</h1>
-      )}
-      {storiesToBeDisplayed === favoriteStories && (
+      {storiesToBeDisplayed === memoizedPosts && (
         <h1 className="heading-1">
-          Our {favoriteStories.length} favorite Short Stories
+          {" "}
+          All our {memoizedPosts.length} Short Stories
+        </h1>
+      )}
+      {storiesToBeDisplayed === memoizedFavoriteStories && (
+        <h1 className="heading-1">
+          Our {memoizedFavoriteStories.length} favorite Short Stories
         </h1>
       )}
 
       <div className="filters">
         <button
-          className={`button | ${storiesToBeDisplayed === posts && "active"} `}
+          className={`button | ${
+            storiesToBeDisplayed === memoizedPosts && "active"
+          } `}
           onClick={handleFilterClick}
           value={"posts"}
         >
@@ -42,7 +53,7 @@ export default function Stories() {
         </button>
         <button
           className={`button | ${
-            storiesToBeDisplayed === favoriteStories && "active"
+            storiesToBeDisplayed === memoizedFavoriteStories && "active"
           } `}
           onClick={handleFilterClick}
           value={"favoriteStories"}

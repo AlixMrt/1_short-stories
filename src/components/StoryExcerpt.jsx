@@ -10,6 +10,11 @@ export default function StoryExcerpt({ post }) {
         <p className="heading-4">
           {post.userId} ({post.date})
         </p>
+        {/* <img src={`images/${post.img}`} alt={post.title} />
+        <img
+          src={`${window.location.origin}/images/${post.img}`}
+          alt={post.title}
+        /> */}
       </div>
       <TextDivider />
       <div className="story__content">

@@ -4,7 +4,6 @@ import routerLogo from "../svg/tech-list/router.svg";
 import githubLogo from "../svg/tech-list/github.svg";
 import gitLogo from "../svg/tech-list/git.svg";
 import sassLogo from "../svg/tech-list/sass.svg";
-import vpsLogo from "../svg/tech-list/vps.svg";
 
 export default function TechList() {
   const technologies = [
@@ -14,7 +13,6 @@ export default function TechList() {
     { name: "Router V6", logo: routerLogo },
     { name: "Github", logo: githubLogo },
     { name: "Git", logo: gitLogo },
-    { name: "VPS", logo: vpsLogo },
   ];
 
   return (
