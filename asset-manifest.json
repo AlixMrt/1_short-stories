@@ -1,21 +1,20 @@
 {
   "files": {
-    "main.css": "/1_short-stories/static/css/main.c571f9d6.css",
-    "main.js": "/1_short-stories/static/js/main.0339cee4.js",
+    "main.css": "/1_short-stories/static/css/main.ee354c15.css",
+    "main.js": "/1_short-stories/static/js/main.7e568d2f.js",
+    "static/media/henry.webp": "/1_short-stories/static/media/henry.7c63560cfbb10a124cae.webp",
+    "static/media/baldwin.webp": "/1_short-stories/static/media/baldwin.04361821581350a6ffff.webp",
+    "static/media/woolf.webp": "/1_short-stories/static/media/woolf.b0bb4818910080f52e8e.webp",
+    "static/media/leacock.webp": "/1_short-stories/static/media/leacock.ddc6c317f93e50585e2d.webp",
+    "static/media/chopin.webp": "/1_short-stories/static/media/chopin.d361860947db759132d6.webp",
+    "static/media/wilde.webp": "/1_short-stories/static/media/wilde.6980c8b176907cc402bc.webp",
     "static/media/books.svg": "/1_short-stories/static/media/books.d5edc257544d8355f8ed6b41d9854dd1.svg",
-    "static/media/react.svg": "/1_short-stories/static/media/react.598d90dd4f36234e376cbc6ccd571550.svg",
-    "static/media/vps.svg": "/1_short-stories/static/media/vps.948a28123cf17a9f664eb5f51c1c447a.svg",
-    "static/media/sass.svg": "/1_short-stories/static/media/sass.eebb8c7d36e22f3f6eea5e6edfa027a3.svg",
-    "static/media/router.svg": "/1_short-stories/static/media/router.ae395b4904731fbd027bcb0213833aac.svg",
-    "static/media/redux.svg": "/1_short-stories/static/media/redux.59f428ebf1c8b3a3fcec9ee28b57c9da.svg",
-    "static/media/git.svg": "/1_short-stories/static/media/git.890ec924b44c2821c2667459bbaeea25.svg",
-    "static/media/github.svg": "/1_short-stories/static/media/github.b8a62b1bbf3ae3ff9026c5ec22121fd3.svg",
     "index.html": "/1_short-stories/index.html",
-    "main.c571f9d6.css.map": "/1_short-stories/static/css/main.c571f9d6.css.map",
-    "main.0339cee4.js.map": "/1_short-stories/static/js/main.0339cee4.js.map"
+    "main.ee354c15.css.map": "/1_short-stories/static/css/main.ee354c15.css.map",
+    "main.7e568d2f.js.map": "/1_short-stories/static/js/main.7e568d2f.js.map"
   },
   "entrypoints": [
-    "static/css/main.c571f9d6.css",
-    "static/js/main.0339cee4.js"
+    "static/css/main.ee354c15.css",
+    "static/js/main.7e568d2f.js"
   ]
 }
